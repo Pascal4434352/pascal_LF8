@@ -14,7 +14,9 @@ Es verwendet eine **MariaDB-Datenbank** in **3. Normalform**.
 - CRUD-Operationen über Repository
 - Service-Schicht für komplexe Abfragen
 
+
 ---
+
 
 ## Technologien
 - **Java 23**
