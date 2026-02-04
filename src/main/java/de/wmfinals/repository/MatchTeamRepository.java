@@ -1,9 +1,11 @@
 package de.wmfinals.repository;
 
-import de.wmfinals.entity.match_team;
+import de.wmfinals.entity.MatchTeam;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface MatchTeamRepository extends JpaRepository<match_team, Integer> {
+@Repository
+public interface MatchTeamRepository extends JpaRepository<MatchTeam, Integer> {
     // NICHT nötig zu definieren:
     // save(entity), saveAll(entities)
     // findById(id), findAll(), findAllById(ids)

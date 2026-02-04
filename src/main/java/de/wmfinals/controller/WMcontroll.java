@@ -1,27 +1,28 @@
 package de.wmfinals.controller;
 
-import de.wmfinals.service.WM_Service;
+import de.wmfinals.entity.Country;
+import de.wmfinals.service.WMService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RequestMapping("/api/world-finals")
 @RestController
 public class WMcontroll {
-    private WM_Service service;
+    @Autowired
+    private WMService service;
 
-    /*public RestController(WM_Service service){
-        this.service = service;
+    @GetMapping
+    public List<Country> getAllCountries(){
+        return service.getAllCountries();
     }
 
-    @GetMapping
-    public List<country> getAllCountries(){
-        return service.getAllCountries();
-    }*/
-
-    @GetMapping
+    /*@GetMapping
     public String hello() {
         return "Hello World";
-    }
+    }*/
 
 }

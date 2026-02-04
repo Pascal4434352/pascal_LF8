@@ -1,16 +1,16 @@
 package de.wmfinals.repository;
 
-import de.wmfinals.entity.country;
+import de.wmfinals.entity.Country;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-public interface CountryRepository extends JpaRepository<country, Integer> {
+@Repository
+public interface CountryRepository extends JpaRepository<Country, Integer> {
     // NICHT nötig zu definieren:
     // save(entity), saveAll(entities)
     // findById(id), findAll(), findAllById(ids)
     // delete(entity), deleteById(id), deleteAll()
     // existsById(id), count()
 
-    country findByname(String name);
+    Country findByName(String name);
 }

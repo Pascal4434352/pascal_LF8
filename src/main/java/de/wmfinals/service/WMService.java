@@ -1,71 +1,75 @@
 package de.wmfinals.service;
 
-import de.wmfinals.entity.country;
-import de.wmfinals.entity.match;
-import de.wmfinals.entity.match_team;
+import de.wmfinals.entity.Country;
+import de.wmfinals.entity.Match;
+import de.wmfinals.entity.MatchTeam;
 import de.wmfinals.repository.CountryRepository;
 import de.wmfinals.repository.MatchRepository;
 import de.wmfinals.repository.MatchTeamRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
 @Service
-public class WM_Service {
+public class WMService {
+    @Autowired
     private CountryRepository countryRepository;
+    @Autowired
     private MatchRepository matchRepository;
+    @Autowired
     private MatchTeamRepository matchTeamRepository;
 
-    public WM_Service(CountryRepository countryRepository) {
+    /*public WMService(CountryRepository countryRepository) {
         this.countryRepository = countryRepository;
     }
-    public WM_Service(MatchRepository matchRepository) {
+    public WMService(MatchRepository matchRepository) {
         this.matchRepository = matchRepository;
     }
-    public WM_Service(MatchTeamRepository matchTeamRepository) {
+    public WMService(MatchTeamRepository matchTeamRepository) {
         this.matchTeamRepository = matchTeamRepository;
-    }
+    }*/
     //------------------------------------------------------------------------------------------------------------------
-    public List<country> getAllCountries() {
+    public List<Country> getAllCountries() {
         return countryRepository.findAll();
     }
-    public country getCountryByName(String name){
-        return countryRepository.findByname(name);
+    public Country getCountryByName(String name){
+        return countryRepository.findByName(name);
     }
-    public void deleteCountryByid(int id) {
+    public void deleteCountryById(int id) {
         countryRepository.deleteById(id);
     }
-    public country saveCountry(country country) {
+    public Country saveCountry(Country country) {
         return countryRepository.save(country);
     }
     //------------------------------------------------------------------------------------------------------------------
-    public List<match> getAllMatches(){
+    public List<Match> getAllMatches(){
         return matchRepository.findAll();
     }
-    public List<match> getAllPenalty(){
-        return matchRepository.findBypenaltyShootout(true);
+    public List<Match> getAllPenalty(){
+        return matchRepository.findByPenaltyShootout(true);
     }
-    public List<match> getLocation(match location){
-        return matchRepository.findBylocation(location);
+    public List<Match> getLocation(Match location){
+        return matchRepository.findByLocation(location);
     }
-    public match getDate(Date date){
-        return matchRepository.findBydate(date);
+    public Match getDate(Date date){
+        return matchRepository.findByDate(date);
     }
-    public void deleteMatch(match match){
+    public void deleteMatch(Match match){
         matchRepository.delete(match);
     }
-    public match saveMatch(match match){
+    public Match saveMatch(Match match){
         return matchRepository.save(match);
     }
     //------------------------------------------------------------------------------------------------------------------
-    public List<match_team> getAllTeams(){
+    public List<MatchTeam> getAllTeams(){
         return matchTeamRepository.findAll();
     }
-    public void deleteTeam(match_team team){
+    public void deleteTeam(MatchTeam team){
         matchTeamRepository.delete(team);
     }
-    public match_team saveTeam(match_team team){
+    public MatchTeam saveTeam(MatchTeam team){
         return matchTeamRepository.save(team);
     }
 }

@@ -6,18 +6,18 @@ import java.util.Date;
 
 @Entity
 @Table (name = "matchmatch")
-public class match {
+public class Match {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private Date date;
     private String location;
-    private boolean penaltyShootout;
+    private Boolean penaltyShootout;
 
-    public int getmatchId() { return id; }
-    public void setmatchId(int id) { this.id = id; }
+    public Integer getmatchId() { return id; }
+    public void setmatchId(Integer id) { this.id = id; }
 
     public Date getDate() { return date; }
     public void setDate(Date date) { this.date = date; }
@@ -25,6 +25,6 @@ public class match {
     public String getLocation() { return location; }
     public void setLocation(String location) { this.location = location; }
 
-    public boolean getPenaltyShootout() { return penaltyShootout; }
-    public void setPenaltyShootout(boolean penaltyShootout) { this.penaltyShootout = penaltyShootout; }
+    public Boolean getPenaltyShootout() { return penaltyShootout; }
+    public void setPenaltyShootout(Boolean penaltyShootout) { this.penaltyShootout = penaltyShootout; }
 }
